@@ -42,22 +42,23 @@ function App() {
   }
 
   function editItem(taskID){
+    console.log(taskID)
       const editedTaskList = toDoList.map((task) => {
         if(taskID === task.id){
-          return{
-            ...task,
-            name: "NEW TASK"
-          };
+          return(
+            {...task,
+            task: "NEW TASK"}
+          );
         }
         return task;
       });
       setList(editedTaskList)
-
-
-    useEffect(()=>{
-      console.log(tasks);
-    }, {tasks})
+  
   }
+
+  useEffect(()=>{
+    console.log(toDoList);
+  }, [toDoList])
   return (
     <div className="App">
       <VStack>
